@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.scene.text.Font?>
+<AnchorPane
+        xmlns="http://javafx.com/javafx/17.0.2-ea"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.lab.university.controllers.FirstUseController"
+>
+   <VBox style="-fx-padding: 15;" spacing="15">
+      <Label text="Welcome, register yourself as system administrator">
+         <font>
+            <Font size="18"/>
+         </font>
+      </Label>
+      <GridPane
+              alignment="TOP_CENTER"
+              style="-fx-hgap: 10; -fx-vgap: 10"
+      >
+         <Label text="Username:"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="0"
+         >
+
+         </Label>
+         <TextField
+                 GridPane.columnIndex="1"
+                 GridPane.rowIndex="0"
+                 fx:id="usernameField"
+                 onAction="#register"
+         />
+         <Label text="Password:"
+                GridPane.columnIndex="2"
+                GridPane.rowIndex="0"
+
+         />
+         <PasswordField
+                 GridPane.columnIndex="3"
+                 GridPane.rowIndex="0"
+                 fx:id="passwordField"
+                 onAction="#register"
+         />
+         <Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+         <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="4"/>
+      </GridPane>
+      <Button text="Register" onAction="#register"/>
+   </VBox>
+
+</AnchorPane>

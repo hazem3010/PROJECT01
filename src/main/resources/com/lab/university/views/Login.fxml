@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.lab.university.controllers.LoginController"
+            style="-fx-padding: 20"
+>
+    <VBox alignment="TOP_CENTER"
+          AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0"
+          AnchorPane.rightAnchor="0"
+          AnchorPane.topAnchor="0"
+          spacing="15"
+    >
+
+        <Label text="Login" textAlignment="CENTER" style="-fx-padding: 15">
+         <font>
+            <Font size="32.0" />
+         </font></Label>
+        <GridPane
+                alignment="TOP_CENTER"
+                style="-fx-hgap: 10; -fx-vgap: 10"
+        >
+            <Label text="Username:"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="0"
+
+            />
+            <TextField
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="0"
+                fx:id="usernameField"
+            />
+            <Label text="Password:"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="1"
+
+            />
+            <PasswordField
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="1"
+                    fx:id="passwordField"
+            />
+        </GridPane>
+        <Button
+            text="Login"
+        />
+    </VBox>
+</AnchorPane>
