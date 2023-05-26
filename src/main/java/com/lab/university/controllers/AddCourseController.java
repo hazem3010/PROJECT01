@@ -2,7 +2,6 @@ package com.lab.university.controllers;
 
 import com.lab.university.models.*;
 import javafx.event.ActionEvent;
-import javafx.fxml.Initializable;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -10,10 +9,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import com.lab.university.Main;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class AddCourseController implements Initializable {
+public class AddCourseController {
     public TextField instructorField;
     public AnchorPane rootPane;
     public TextField subjectField;
@@ -65,16 +62,6 @@ public class AddCourseController implements Initializable {
         bookNameField.clear();
         classroomField.clear();
         instructorField.clear();
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        instructorField.focusedProperty().addListener(((observableValue, aBoolean, t1) ->
-        {
-  //          if (t1) suggestions.show(instructorField.getScene().getWindow());
-    //        else suggestions.hide();
-        }));
-
     }
 
     public void contextMenu(KeyEvent keyEvent) {
