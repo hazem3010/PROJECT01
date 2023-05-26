@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 
 public class Main extends Application {
-    public static ArrayList<User> users;
+    public static Manager manager;
     public static ArrayList<Course> courses;
     public static ArrayList<TeachingAssistant> TAs;
 
@@ -20,10 +20,10 @@ public class Main extends Application {
         Navigation.setStage(stage);
         Scene home;
         stage.setTitle("University");
-        Main.users = Data.load("users.bin");
+        manager = Data.loadManager();
         Main.courses = Data.load("courses.bin");
         Main.TAs = Data.load("teachingAssistants.bin");
-        String fxmlUrl = (Main.users.size() > 0)?"views/Login.fxml":"views/FirstUse.fxml";
+        String fxmlUrl = (manager != null)?"views/Login.fxml":"views/FirstUse.fxml";
         home = new Scene(new FXMLLoader(Main.class.getResource(fxmlUrl)).load());
         stage.setScene(home);
         stage.show();

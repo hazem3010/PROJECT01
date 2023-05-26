@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import com.lab.university.Main;
 import javafx.stage.Popup;
@@ -72,51 +73,6 @@ public class AddCourseController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Popup suggestionsPopup = new Popup();
-        ListView<String> suggestionsListView = new ListView<>();
-        suggestionsListView.setPrefHeight(100);
-        suggestionsListView.setMaxWidth(150);
-        suggestionsListView.getStyleClass().add("suggestions-list");
-        ObservableList<String> filteredSuggestions = FXCollections.observableArrayList();
-
-        instructorField.setOnKeyTyped(e -> {
-            String enteredText = instructorField.getText().toLowerCase();
-            if (enteredText.isEmpty()) {
-                suggestionsPopup.hide();
-            } else {
-                filteredSuggestions.clear();
-                for (TeachingAssistant ta: Main.TAs) {
-                    if (ta.getName().toLowerCase().contains(instructorField.getText().trim().toLowerCase())) {
-                        filteredSuggestions.add(ta.getName());
-                    }
-                }
-                if (!filteredSuggestions.isEmpty()) {
-                    getSuggestionsItems(suggestionsPopup, suggestionsListView, filteredSuggestions, instructorField);
-                } else {
-                    suggestionsPopup.hide();
-                }
-            }
-        });
-
-        suggestionsListView.setOnMouseClicked(e -> {
-            if (!suggestionsListView.getSelectionModel().isEmpty()) {
-                instructorField.setText(suggestionsListView.getSelectionModel().getSelectedItem());
-                suggestionsPopup.hide();
-            }
-        });
-    }
-
-    public static void getSuggestionsItems(Popup popup, ListView<String> listView, ObservableList<String> observableList, TextField textField) {
-        listView.setItems(observableList);
-        listView.getSelectionModel().clearSelection();
-
-        double listViewHeight = observableList.size() * 24 + 2;
-        listView.setPrefHeight(listViewHeight);
-
-        popup.getContent().clear();
-        popup.getContent().add(listView);
-
-        Bounds bounds = textField.localToScreen(textField.getBoundsInLocal());
-        popup.show(textField, bounds.getMinX(), bounds.getMaxY());
+        AutoComplete.setAutoComplete(instructorField, Main.TAs);
     }
 }

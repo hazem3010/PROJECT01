@@ -12,10 +12,14 @@ public class LoginController {
 
     public void login() throws IOException {
         String username = usernameField.getText().trim();
-        for(User user: Main.users){
-            if (user.getUserName().equals(username) && user.getPassword().equals(passwordField.getText())){
-                if (user instanceof Manager) Navigation.navigateTo(Navigation.SYSTEM_MANGER_FXML);
-                else Navigation.navigateTo(Navigation.TEACHING_ASSISTANT_FXML);
+        String password = passwordField.getText();
+        if (Main.manager.getUserName().equals(username) && Main.manager.getPassword().equals(password)){
+            Navigation.navigateTo(Navigation.SYSTEM_MANGER_FXML);
+            return;
+        }
+        for(TeachingAssistant ta: Main.TAs){
+            if (ta.getUserName().equals(username) && ta.getPassword().equals(passwordField.getText())){
+                Navigation.navigateTo(Navigation.TEACHING_ASSISTANT_FXML);
                 return;
             }
         }

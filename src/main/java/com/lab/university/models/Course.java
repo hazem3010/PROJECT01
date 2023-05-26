@@ -3,7 +3,7 @@ package com.lab.university.models;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Course implements Serializable {
+public class Course implements Serializable, AutoCompletable {
     private String subject ;
     private String book ;
     private String location;
@@ -73,5 +73,10 @@ public class Course implements Serializable {
 
     public void setLectures(ArrayList<Lecture> lectures) {
         this.lectures = lectures;
+    }
+
+    @Override
+    public String toAutoComplete() {
+        return getSubject();
     }
 }

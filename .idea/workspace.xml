@@ -5,13 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61242d65-1f5a-4ee4-a8f9-c1540d3bf3ed" name="Changes" comment="Main">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/TeachingAssistantController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/AutoCompletable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/AutoComplete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/manager.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddCourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddTeachingAssistantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddTeachingAssistantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/FirstUseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/FirstUseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/RemoveCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/RemoveCourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateCourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/models/TeachingAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/TeachingAssistant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/courses.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/courses.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/teachingAssistants.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/teachingAssistants.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/AddCourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/AddCourse.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/updateCourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/UpdateCourse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/users.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/FirstUse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/FirstUse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/RemoveCourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/RemoveCourse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/TeachingAssistant.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/TeachingAssistant.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +36,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -60,6 +76,7 @@
     "extract.method.default.visibility": "public",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "java.suggest.annotation.dependency": "false",
     "last_opened_file_path": "F:/Hazem/University",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -164,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685102032572</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Main">
+      <created>1685118439877</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685118439877</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,13 +215,32 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateCourseController.java</url>
-          <line>73</line>
+          <line>65</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateCourseController.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="11" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lab/university/models/AutoComplete.java</url>
+          <line>13</line>
+          <properties class="com.lab.university.models.AutoComplete" method="setAutoComplete">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lab/university/Main.java</url>
+          <line>18</line>
+          <properties class="com.lab.university.Main" method="start">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lab/university/Main.java</url>
+          <line>13</line>
+          <properties field="courses" class="com.lab.university.Main" />
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -8,86 +8,95 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test_javafx.controllers.TeacherAssistantController">
-    <children>
-        <GridPane layoutX="99.0" layoutY="126.0" prefHeight="106.0" prefWidth="401.0">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="163.20001220703125" minWidth="10.0" prefWidth="78.40001220703124" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.3999877929687" minWidth="10.0" prefWidth="322.3999877929687" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints />
-                <RowConstraints maxHeight="43.4" minHeight="10.0" prefHeight="39.4" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="31.4" minHeight="10.0" prefHeight="31.4" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <Label prefHeight="33.0" prefWidth="82.0" text="Student : " GridPane.rowIndex="1">
-                <font>
-                    <Font name="Times New Roman Bold" size="18.0" />
-                </font>
-            </Label>
-            <Label prefHeight="33.0" prefWidth="82.0" text="Lecture: " GridPane.rowIndex="2">
-                <font>
-                    <Font name="Times New Roman Bold" size="18.0" />
-                </font>
-            </Label>
-            <AnchorPane prefHeight="38.0" prefWidth="272.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                <Button layoutX="14.0" layoutY="4.0" mnemonicParsing="false" onAction="#onAddStudent" prefHeight="33.0" prefWidth="84.0" text="Add">
-                    <font>
-                        <Font name="Times New Roman Bold" size="18.0" />
-                    </font>
-                </Button>
-                <Button layoutX="103.0" layoutY="4.0" mnemonicParsing="false" onAction="#onUpdateStudent" prefHeight="34.0" prefWidth="102.0" text="Update">
-                    <font>
-                        <Font name="Times New Roman Bold" size="18.0" />
-                    </font>
-                </Button>
-                <Button layoutX="213.0" layoutY="4.0" mnemonicParsing="false" onAction="#onRemoveStudent" prefHeight="34.0" prefWidth="94.0" text="Remove">
-                    <font>
-                        <Font name="Times New Roman Bold" size="18.0" />
-                    </font>
-                </Button>
-            </AnchorPane>
-            <AnchorPane prefHeight="38.0" prefWidth="272.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                <children>
-                    <Button layoutX="14.0" layoutY="4.0" mnemonicParsing="false" onAction="#onAddLecture" prefHeight="33.0" prefWidth="84.0" text="Add">
-                        <font>
-                            <Font name="Times New Roman Bold" size="18.0" />
-                        </font>
-                    </Button>
-                    <Button layoutX="102.0" layoutY="4.0" mnemonicParsing="false" onAction="#onUpdateLecture" prefHeight="34.0" prefWidth="102.0" text="Update">
-                        <font>
-                            <Font name="Times New Roman Bold" size="18.0" />
-                        </font>
-                    </Button>
-                    <Button layoutX="213.0" layoutY="4.0" mnemonicParsing="false" onAction="#onRemoveLecture" prefHeight="33.0" prefWidth="94.0" text="Remove">
-                        <font>
-                            <Font name="Times New Roman Bold" size="18.0" />
-                        </font>
-                    </Button>
-                </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        </GridPane>
-        <Button layoutX="278.0" layoutY="253.0" mnemonicParsing="false" onAction="#onAttendance" prefHeight="34.0" prefWidth="112.0" text="Attendance">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.lab.university.controllers.TeachingAssistantController">
+    <GridPane layoutX="99.0" layoutY="126.0" prefHeight="106.0" prefWidth="401.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="163.20001220703125" minWidth="10.0"
+                               prefWidth="78.40001220703124"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.3999877929687" minWidth="10.0"
+                               prefWidth="322.3999877929687"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints/>
+            <RowConstraints maxHeight="43.4" minHeight="10.0" prefHeight="39.4" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="31.4" minHeight="10.0" prefHeight="31.4" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <Label prefHeight="33.0" prefWidth="82.0" text="Student : " GridPane.rowIndex="1">
             <font>
-                <Font name="Times New Roman Bold" size="18.0" />
-            </font>
-        </Button>
-        <Button layoutX="417.0" layoutY="254.0" mnemonicParsing="false" onAction="#onReports" prefHeight="34.0" prefWidth="94.0" text="Reports">
-            <font>
-                <Font name="Times New Roman Bold" size="18.0" />
-            </font>
-        </Button>
-        <Button layoutX="168.0" layoutY="254.0" mnemonicParsing="false" onAction="#onBack" prefHeight="33.0" prefWidth="84.0" text="Back">
-            <font>
-                <Font name="Times New Roman Bold" size="18.0" />
-            </font>
-        </Button>
-        <Label layoutX="159.0" layoutY="46.0" text="TeacherAssistant">
-            <font>
-                <Font name="Times New Roman Bold" size="36.0" />
+                <Font name="Times New Roman Bold" size="18.0"/>
             </font>
         </Label>
-    </children>
+        <Label prefHeight="33.0" prefWidth="82.0" text="Lecture: " GridPane.rowIndex="2">
+            <font>
+                <Font name="Times New Roman Bold" size="18.0"/>
+            </font>
+        </Label>
+        <AnchorPane prefHeight="38.0" prefWidth="272.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button layoutX="14.0" layoutY="4.0" mnemonicParsing="false" onAction="#onAddStudent" prefHeight="33.0"
+                    prefWidth="84.0" text="Add">
+                <font>
+                    <Font name="Times New Roman Bold" size="18.0"/>
+                </font>
+            </Button>
+            <Button layoutX="103.0" layoutY="4.0" mnemonicParsing="false" onAction="#onUpdateStudent" prefHeight="34.0"
+                    prefWidth="102.0" text="Update">
+                <font>
+                    <Font name="Times New Roman Bold" size="18.0"/>
+                </font>
+            </Button>
+            <Button layoutX="213.0" layoutY="4.0" mnemonicParsing="false" onAction="#onRemoveStudent" prefHeight="34.0"
+                    prefWidth="94.0" text="Remove">
+                <font>
+                    <Font name="Times New Roman Bold" size="18.0"/>
+                </font>
+            </Button>
+        </AnchorPane>
+        <AnchorPane prefHeight="38.0" prefWidth="272.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button layoutX="14.0" layoutY="4.0" mnemonicParsing="false" onAction="#onAddLecture" prefHeight="33.0"
+                    prefWidth="84.0" text="Add">
+                <font>
+                    <Font name="Times New Roman Bold" size="18.0"/>
+                </font>
+            </Button>
+            <Button layoutX="102.0" layoutY="4.0" mnemonicParsing="false" onAction="#onUpdateLecture"
+                    prefHeight="34.0" prefWidth="102.0" text="Update">
+                <font>
+                    <Font name="Times New Roman Bold" size="18.0"/>
+                </font>
+            </Button>
+            <Button layoutX="213.0" layoutY="4.0" mnemonicParsing="false" onAction="#onRemoveLecture"
+                    prefHeight="33.0" prefWidth="94.0" text="Remove">
+                <font>
+                    <Font name="Times New Roman Bold" size="18.0"/>
+                </font>
+            </Button>
+        </AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    </GridPane>
+    <Button layoutX="278.0" layoutY="253.0" mnemonicParsing="false" onAction="#onAttendance" prefHeight="34.0"
+            prefWidth="112.0" text="Attendance">
+        <font>
+            <Font name="Times New Roman Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="417.0" layoutY="254.0" mnemonicParsing="false" onAction="#onReports" prefHeight="34.0"
+            prefWidth="94.0" text="Reports">
+        <font>
+            <Font name="Times New Roman Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="168.0" layoutY="254.0" mnemonicParsing="false" onAction="#onBack" prefHeight="33.0"
+            prefWidth="84.0" text="Back">
+        <font>
+            <Font name="Times New Roman Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Label layoutX="159.0" layoutY="46.0" text="TeacherAssistant">
+        <font>
+            <Font name="Times New Roman Bold" size="36.0"/>
+        </font>
+    </Label>
 </AnchorPane>

@@ -73,6 +73,7 @@ public class AddTeachingAssistantController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Format.onlyDigits(phoneNumberField);
+        AutoComplete.setAutoComplete(courseField, Main.courses);
     }
 
     private void clear(){

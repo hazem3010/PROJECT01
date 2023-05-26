@@ -38,8 +38,7 @@ public class FirstUseController implements Initializable {
         else return;
         if (username.equals("") || password.equals("") || name.equals("") || address.equals("") || phone.equals(""))
             MyAlert.errorAlert("No enough information", "Error", "You must fill all fields to continue");
-        User admin = new Manager(username, password, name, gender, phone ,address);
-        Main.users.add(admin);
+        Main.manager = new Manager(username, password, name, gender, phone ,address);
         Navigation.navigateTo(Navigation.SYSTEM_MANGER_FXML);
     }
 
