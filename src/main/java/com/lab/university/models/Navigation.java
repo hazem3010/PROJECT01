@@ -21,7 +21,7 @@ public class Navigation {
     public static final String TEACHING_ASSISTANT_FXML = "views/TeachingAssistant.fxml";
     public static final String SHOW_TEACHER_FXML = "views/ShowTeacher.fxml";
     public static final String REMOVE_TEACHER_FXML = "views/RemoveTeacher.fxml";
-    public static final String UPDATE_TEACHER_FXML = "views/updateTeacherAssistant.fxml";
+    public static final String UPDATE_TEACHER_FXML = "views/UpdateTeacherAssistant.fxml";
 
     public static void setStage(Stage stage){
         Navigation.stage = stage;
