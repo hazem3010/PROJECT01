@@ -1,16 +1,21 @@
 package com.lab.university.controllers;
 
 import com.lab.university.models.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
+import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import com.lab.university.Main;
+import javafx.stage.Popup;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AddCourseController {
+public class AddCourseController implements Initializable {
     public TextField instructorField;
     public AnchorPane rootPane;
     public TextField subjectField;
@@ -64,18 +69,49 @@ public class AddCourseController {
         instructorField.clear();
     }
 
-    public void contextMenu(KeyEvent keyEvent) {
-        ContextMenu suggestions = new ContextMenu();
-        for (TeachingAssistant ta: Main.TAs){
-            if (ta.getName().toLowerCase().contains(instructorField.getText().trim().toLowerCase())){
-                MenuItem menuItem = new MenuItem(ta.getName());
-                menuItem.setOnAction(e -> {
-                    instructorField.setText(ta.getName());
-                    suggestions.hide();
-                });
-                suggestions.getItems().add(menuItem);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Popup suggestionsPopup = new Popup();
+        ListView<String> suggestionsListView = new ListView<>();
+        suggestionsListView.setPrefHeight(100);
+        suggestionsListView.setMaxWidth(150);
+        suggestionsListView.getStyleClass().add("suggestions-list");
+        ObservableList<String> filteredSuggestions = FXCollections.observableArrayList();
+
+        instructorField.setOnKeyTyped(e -> {
+            String enteredText = instructorField.getText().toLowerCase();
+            if (enteredText.isEmpty()) {
+                suggestionsPopup.hide();
+            } else {
+                filteredSuggestions.clear();
+                for (TeachingAssistant ta: Main.TAs) {
+                    if (ta.getName().toLowerCase().contains(instructorField.getText().trim().toLowerCase())) {
+                        filteredSuggestions.add(ta.getName());
+                    }
+                }
+                if (!filteredSuggestions.isEmpty()) {
+                    suggestionsListView.setItems(filteredSuggestions);
+                    suggestionsListView.getSelectionModel().clearSelection();
+
+                    double listViewHeight = filteredSuggestions.size() * 24 + 2; // Adjust the item height as needed
+                    suggestionsListView.setPrefHeight(listViewHeight);
+
+                    suggestionsPopup.getContent().clear();
+                    suggestionsPopup.getContent().add(suggestionsListView);
+
+                    Bounds bounds = instructorField.localToScreen(instructorField.getBoundsInLocal());
+                    suggestionsPopup.show(instructorField, bounds.getMinX(), bounds.getMaxY());
+                } else {
+                    suggestionsPopup.hide();
+                }
             }
-        }
-        instructorField.setContextMenu(suggestions);
+        });
+
+        suggestionsListView.setOnMouseClicked(e -> {
+            if (!suggestionsListView.getSelectionModel().isEmpty()) {
+                instructorField.setText(suggestionsListView.getSelectionModel().getSelectedItem());
+                suggestionsPopup.hide();
+            }
+        });
     }
 }

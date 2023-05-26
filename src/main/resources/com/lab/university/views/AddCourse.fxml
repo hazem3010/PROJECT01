@@ -40,7 +40,7 @@
         <TextField fx:id="subjectField" promptText="Enter the Course" GridPane.columnIndex="1" />
         <TextField fx:id="bookNameField" promptText="Enter the book name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <TextField fx:id="classroomField" promptText="Enter the lecture venue" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <TextField fx:id="instructorField" promptText="Enter the name instructor" GridPane.columnIndex="1" GridPane.rowIndex="3" onKeyTyped="#contextMenu"/>
+        <TextField fx:id="instructorField" promptText="Enter the name instructor" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
         <Button mnemonicParsing="false" onAction="#Back" prefHeight="33.0" prefWidth="84.0" text="Back" GridPane.rowIndex="4">
             <font>
                 <Font name="System Bold" size="16.0" />
