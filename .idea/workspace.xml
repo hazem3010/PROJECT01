@@ -7,6 +7,11 @@
     <list default="true" id="61242d65-1f5a-4ee4-a8f9-c1540d3bf3ed" name="Changes" comment="Main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddCourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateCourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/courses.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/courses.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/teachingAssistants.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/teachingAssistants.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/AddCourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/AddCourse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/updateCourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/UpdateCourse.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +57,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "public",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "F:/Hazem/University",
@@ -151,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685099815001</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Main">
+      <created>1685102032572</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685102032572</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,5 +185,21 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Main" />
     <option name="LAST_COMMIT_MESSAGE" value="Main" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateCourseController.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateCourseController.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

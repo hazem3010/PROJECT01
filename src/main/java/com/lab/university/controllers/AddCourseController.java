@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import com.lab.university.Main;
 import javafx.stage.Popup;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,7 +28,7 @@ public class AddCourseController implements Initializable {
         Navigation.navigateTo(Navigation.SYSTEM_MANGER_FXML);
     }
 
-    public void Add(ActionEvent event) {
+    public void add(ActionEvent event) {
         String courseName = subjectField.getText().trim();
         String bookName = bookNameField.getText().trim();
         String place = classroomField.getText().trim();
@@ -90,17 +91,7 @@ public class AddCourseController implements Initializable {
                     }
                 }
                 if (!filteredSuggestions.isEmpty()) {
-                    suggestionsListView.setItems(filteredSuggestions);
-                    suggestionsListView.getSelectionModel().clearSelection();
-
-                    double listViewHeight = filteredSuggestions.size() * 24 + 2; // Adjust the item height as needed
-                    suggestionsListView.setPrefHeight(listViewHeight);
-
-                    suggestionsPopup.getContent().clear();
-                    suggestionsPopup.getContent().add(suggestionsListView);
-
-                    Bounds bounds = instructorField.localToScreen(instructorField.getBoundsInLocal());
-                    suggestionsPopup.show(instructorField, bounds.getMinX(), bounds.getMaxY());
+                    getSuggestionsItems(suggestionsPopup, suggestionsListView, filteredSuggestions, instructorField);
                 } else {
                     suggestionsPopup.hide();
                 }
@@ -113,5 +104,19 @@ public class AddCourseController implements Initializable {
                 suggestionsPopup.hide();
             }
         });
+    }
+
+    public static void getSuggestionsItems(Popup popup, ListView<String> listView, ObservableList<String> observableList, TextField textField) {
+        listView.setItems(observableList);
+        listView.getSelectionModel().clearSelection();
+
+        double listViewHeight = observableList.size() * 24 + 2;
+        listView.setPrefHeight(listViewHeight);
+
+        popup.getContent().clear();
+        popup.getContent().add(listView);
+
+        Bounds bounds = textField.localToScreen(textField.getBoundsInLocal());
+        popup.show(textField, bounds.getMinX(), bounds.getMaxY());
     }
 }

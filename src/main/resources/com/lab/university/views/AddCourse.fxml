@@ -37,16 +37,16 @@
                 <Font name="Times New Roman Bold" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="subjectField" promptText="Enter the Course" GridPane.columnIndex="1" />
-        <TextField fx:id="bookNameField" promptText="Enter the book name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <TextField fx:id="classroomField" promptText="Enter the lecture venue" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <TextField fx:id="instructorField" promptText="Enter the name instructor" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-        <Button mnemonicParsing="false" onAction="#Back" prefHeight="33.0" prefWidth="84.0" text="Back" GridPane.rowIndex="4">
+        <TextField fx:id="subjectField" promptText="Enter the Course" GridPane.columnIndex="1" onAction="#add"/>
+        <TextField fx:id="bookNameField" promptText="Enter the book name" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#add"/>
+        <TextField fx:id="classroomField" promptText="Enter the lecture venue" GridPane.columnIndex="1" GridPane.rowIndex="2" onAction="#add"/>
+        <TextField fx:id="instructorField" promptText="Enter the name instructor" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#add"/>
+        <Button mnemonicParsing="false" onAction="#Back" prefHeight="33.0" prefWidth="84.0" text="Back" GridPane.rowIndex="4" >
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
         </Button>
-        <Button mnemonicParsing="false" onAction="#Add" prefHeight="33.0" prefWidth="84.0" text="Add" GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Button mnemonicParsing="false" onAction="#add" prefHeight="33.0" prefWidth="84.0" text="Add" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <font>
                 <Font name="Times New Roman Bold" size="18.0" />
             </font>
