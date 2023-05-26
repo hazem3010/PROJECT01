@@ -1,8 +1,9 @@
 package com.lab.university.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Course {
+public class Course implements Serializable {
     private String subject ;
     private String book ;
     private String location;
@@ -15,6 +16,12 @@ public class Course {
         this.book = book;
         this.location = location;
         this.TA = TA;
+    }
+
+    public Course(String subject, String book, String location) {
+        this.subject = subject;
+        this.book = book;
+        this.location = location;
     }
 
     public Course() {

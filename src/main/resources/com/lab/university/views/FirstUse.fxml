@@ -43,10 +43,16 @@
                  fx:id="passwordField"
                  onAction="#register"
          />
-         <Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-         <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="4"/>
+         <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+         <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2" fx:id="nameField"/>
+         <Label text="Gender: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+         <RadioButton text="Male" GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="Male" onAction="#toggleGender" selected="true"/>
+         <RadioButton text="Female" GridPane.rowIndex="2" GridPane.columnIndex="2" fx:id="Female" onAction="#toggleGender"/>
+         <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+         <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="phoneFiled" onKeyTyped="#digitsOnly"/>
+         <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+         <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.columnSpan="3" fx:id="addressField"/>
       </GridPane>
       <Button text="Register" onAction="#register"/>
    </VBox>
-
 </AnchorPane>

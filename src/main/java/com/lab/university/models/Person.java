@@ -1,10 +1,13 @@
 package com.lab.university.models;
 
-public class Person {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Person implements Serializable {
 
     private String name;
     private byte gender;
-    private String[] phone;
+    private ArrayList<String> phone = new ArrayList<>();
     private String address;
 
     public String getName() {
@@ -23,11 +26,11 @@ public class Person {
         this.gender = gender;
     }
 
-    public String[] getPhone() {
+    public ArrayList<String> getPhone() {
         return phone;
     }
 
-    public void setPhone(String[] phone) {
+    public void setPhone(ArrayList<String> phone) {
         this.phone = phone;
     }
 
@@ -39,10 +42,10 @@ public class Person {
         this.address = address;
     }
 
-    public Person(String name, byte gender, String[] phone, String address) {
+    public Person(String name, byte gender, String phone, String address) {
         this.name = name;
         this.gender = gender;
-        this.phone = phone;
+        this.phone.add(phone);
         this.address = address;
     }
     public Person(){

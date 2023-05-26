@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="rootPane" prefHeight="450" prefWidth="750" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lab.university.controllers.UpdateCourseController">
+   <GridPane alignment="CENTER" layoutX="232.0" layoutY="118.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="264.0" prefWidth="314.0">
+      <VBox GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.RowSpan="2" GridPane.columnSpan="2" spacing="16">
+         <Label text="Search for course to update:" >
+            <font>
+               <Font size="20"/>
+            </font>
+         </Label>
+         <TextField onAction="#search"/>
+      </VBox>
+
+      <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="154.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.60003662109375" minWidth="10.0" prefWidth="161.19999999999996" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <Label text="Course:" GridPane.rowIndex="2">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label text="Book Name: " GridPane.rowIndex="3">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label text="Lecture venue: " GridPane.rowIndex="4">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label text="instructor: " GridPane.rowIndex="5">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+
+      <TextField fx:id="subject" promptText="Enter the course" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="bookName" promptText="Enter the book name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="place" promptText="Enter the lecture venue" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <TextField fx:id="instructor" promptText="Enter the name instructor" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Button mnemonicParsing="false" onAction="#Back" prefHeight="33.0" prefWidth="84.0" text="Back" GridPane.rowIndex="6">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#Update" prefHeight="33.0" prefWidth="84.0" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="6">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
+   </GridPane>
+   <Label layoutX="274.0" layoutY="50.0" text="Update Course">
+      <font>
+         <Font name="Times New Roman Bold" size="36.0" />
+      </font>
+   </Label>
+</AnchorPane>

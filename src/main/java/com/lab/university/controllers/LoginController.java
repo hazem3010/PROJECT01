@@ -1,24 +1,24 @@
 package com.lab.university.controllers;
 
-import com.lab.university.Load;
-import com.lab.university.models.User;
+import com.lab.university.Main;
+import com.lab.university.models.*;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class LoginController {
     public TextField usernameField;
     public TextField passwordField;
-    ArrayList<User> users;
 
-    {
-        try {
-            users = Load.load("users.bin");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public void login() throws IOException {
+        String username = usernameField.getText().trim();
+        for(User user: Main.users){
+            if (user.getUserName().equals(username) && user.getPassword().equals(passwordField.getText())){
+                if (user instanceof Manager) Navigation.navigateTo(Navigation.SYSTEM_MANGER_FXML);
+                else Navigation.navigateTo(Navigation.TEACHING_ASSISTANT_FXML);
+                return;
+            }
         }
+        MyAlert.errorAlert("Error", "Credentials Error", "Wrong username or passwordField");
     }
-
-    
 }

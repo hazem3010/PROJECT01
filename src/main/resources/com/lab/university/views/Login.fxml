@@ -35,6 +35,7 @@
                 GridPane.columnIndex="1"
                 GridPane.rowIndex="0"
                 fx:id="usernameField"
+                onAction="#login"
             />
             <Label text="Password:"
                    GridPane.columnIndex="0"
@@ -45,10 +46,12 @@
                     GridPane.columnIndex="1"
                     GridPane.rowIndex="1"
                     fx:id="passwordField"
+                    onAction="#login"
             />
         </GridPane>
         <Button
             text="Login"
+            onAction="#login"
         />
     </VBox>
 </AnchorPane>

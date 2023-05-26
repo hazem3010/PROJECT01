@@ -1,9 +1,10 @@
 package com.lab.university.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Lecture {
+public class Lecture implements Serializable {
     private Course course;
     private String location;
     private ArrayList<Student> attendance;
