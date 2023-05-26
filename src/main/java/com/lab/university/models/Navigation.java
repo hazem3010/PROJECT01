@@ -14,11 +14,14 @@ public class Navigation {
     public static final String LOGIN_FXML = "views/Login.fxml";
     public static final String ADD_COURSE_FXML = "views/AddCourse.fxml";
     public static final String FIRST_USE_FXML = "views/FirstUse.fxml";
-    public static final String REMOVE_FXML = "views/Remove.fxml";
+    public static final String REMOVE_COURSE_FXML = "views/RemoveCourse.fxml";
     public static final String UPDATE_COURSE_FXML = "views/UpdateCourse.fxml";
     public static final String SHOW_COURSE_FXML = "views/ShowCourse.fxml";
     public static final String ADD_TEACHING_ASSISTANT = "views/AddTeachingAssistant.fxml";
     public static final String TEACHING_ASSISTANT_FXML = "views/TeachingAssistant.fxml";
+    public static final String SHOW_TEACHER_FXML = "views/ShowTeacher.fxml";
+    public static final String REMOVE_TEACHER_FXML = "views/RemoveTeacher.fxml";
+    public static final String UPDATE_TEACHER_FXML = "views/updateTeacherAssistant.fxml";
 
     public static void setStage(Stage stage){
         Navigation.stage = stage;

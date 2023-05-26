@@ -71,8 +71,8 @@ public class AddCourseController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         instructorField.focusedProperty().addListener(((observableValue, aBoolean, t1) ->
         {
-            if (t1) suggestions.show(instructorField.getScene().getWindow());
-            else suggestions.hide();
+  //          if (t1) suggestions.show(instructorField.getScene().getWindow());
+    //        else suggestions.hide();
         }));
 
     }

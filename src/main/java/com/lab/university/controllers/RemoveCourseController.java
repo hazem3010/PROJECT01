@@ -1,14 +1,13 @@
 package com.lab.university.controllers;
 
 import com.lab.university.models.Navigation;
-import com.lab.university.models.Student;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class Remove {
+public class RemoveCourseController {
 
     @FXML
     private AnchorPane rootPane;

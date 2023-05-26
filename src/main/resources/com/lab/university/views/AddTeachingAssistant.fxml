@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lab.university.controllers.AddTeachingAssistantController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lab.university.controllers.AddTeachingAssistantController">
    <Label layoutX="149.0" layoutY="36.0" text="Add Teaching Assistant">
       <font>
-         <Font name="Times New Roman Bold Italic" size="36.0" />
+         <Font name="Times New Roman Bold" size="36.0" />
       </font>
    </Label>
    <GridPane alignment="CENTER" layoutX="143.0" layoutY="99.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="270.0" prefWidth="314.0">
@@ -47,7 +53,7 @@
       </Label>
       <TextField fx:id="nameField" promptText="Enter the name" GridPane.columnIndex="1" />
       <TextField fx:id="phoneNumberField" promptText="Enter the phone Numbers" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <TextField fx:id="addressField" promptText="Enter the address" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+      <TextField fx:id="addressField" promptText="Enter the address" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Button mnemonicParsing="false" onAction="#onBack" prefHeight="33.0" prefWidth="84.0" text="Back" GridPane.rowIndex="7">
          <font>
             <Font name="System Bold" size="16.0" />
