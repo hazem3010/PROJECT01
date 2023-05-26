@@ -1,0 +1,217 @@
+Index: src/main/java/com/lab/university/controllers/AddCourseController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lab.university.controllers;\r\n\r\nimport com.lab.university.models.*;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.control.ContextMenu;\r\nimport javafx.scene.control.MenuItem;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.input.KeyEvent;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport com.lab.university.Main;\r\nimport java.io.IOException;\r\nimport java.net.URL;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class AddCourseController implements Initializable {\r\n    public TextField instructorField;\r\n    public AnchorPane rootPane;\r\n    public TextField subjectField;\r\n    public TextField bookNameField;\r\n    public TextField classroomField;\r\n\r\n\r\n    public void Back() throws IOException {\r\n        Navigation.navigateTo(Navigation.SYSTEM_MANGER_FXML);\r\n    }\r\n\r\n    public void Add(ActionEvent event) {\r\n        String courseName = subjectField.getText().trim();\r\n        String bookName = bookNameField.getText().trim();\r\n        String place = classroomField.getText().trim();\r\n        String instructor = instructorField.getText().trim();\r\n        if (courseName.isEmpty() || bookName.isEmpty() || place.isEmpty()){\r\n            MyAlert.errorAlert(\r\n                    \"No enough data\",\r\n                    \"Error\",\r\n                    \"Please fill all fields to continue\");\r\n            return;\r\n        }\r\n        Course course;\r\n        if (instructor.isEmpty()) {\r\n            course = new Course(courseName, bookName, place);\r\n            Main.courses.add(course);\r\n            clear();\r\n        }else {\r\n            TeachingAssistant ta = null;\r\n            for (TeachingAssistant teachingAssistant: Main.TAs){\r\n                if (teachingAssistant.getName().equals(instructor)){\r\n                    ta = teachingAssistant;\r\n                    break;\r\n                }\r\n            }\r\n\r\n            if(ta != null){\r\n                course = new Course(courseName, bookName, place, ta);\r\n                Main.courses.add(course);\r\n                clear();\r\n            }else MyAlert.errorAlert(\"TA not found\", \"Error\", String.format(\"There is no TA named %s\", instructor));\r\n        }\r\n\r\n    }\r\n\r\n    public void clear(){\r\n        subjectField.clear();\r\n        bookNameField.clear();\r\n        classroomField.clear();\r\n        instructorField.clear();\r\n    }\r\n\r\n    @Override\r\n    public void initialize(URL url, ResourceBundle resourceBundle) {\r\n        instructorField.focusedProperty().addListener(((observableValue, aBoolean, t1) ->\r\n        {\r\n            if (t1) suggestions.show(instructorField.getScene().getWindow());\r\n            else suggestions.hide();\r\n        }));\r\n\r\n    }\r\n\r\n    public void contextMenu(KeyEvent keyEvent) {\r\n        ContextMenu suggestions = new ContextMenu();\r\n        for (TeachingAssistant ta: Main.TAs){\r\n            if (ta.getName().toLowerCase().contains(instructorField.getText().trim().toLowerCase())){\r\n                MenuItem menuItem = new MenuItem(ta.getName());\r\n                menuItem.setOnAction(e -> {\r\n                    instructorField.setText(ta.getName());\r\n                    suggestions.hide();\r\n                });\r\n                suggestions.getItems().add(menuItem);\r\n            }\r\n        }\r\n        instructorField.setContextMenu(suggestions);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lab/university/controllers/AddCourseController.java b/src/main/java/com/lab/university/controllers/AddCourseController.java
+--- a/src/main/java/com/lab/university/controllers/AddCourseController.java	(revision 93776344b331496824c113956049d1794e965e57)
++++ b/src/main/java/com/lab/university/controllers/AddCourseController.java	(date 1685092587795)
+@@ -1,24 +1,29 @@
+ package com.lab.university.controllers;
+ 
+ import com.lab.university.models.*;
++import javafx.collections.FXCollections;
++import javafx.collections.ObservableList;
+ import javafx.event.ActionEvent;
+-import javafx.fxml.Initializable;
+-import javafx.scene.control.ContextMenu;
+-import javafx.scene.control.MenuItem;
++import javafx.geometry.Bounds;
++import javafx.scene.control.ListView;
+ import javafx.scene.control.TextField;
+ import javafx.scene.input.KeyEvent;
+ import javafx.scene.layout.AnchorPane;
+ import com.lab.university.Main;
++import javafx.stage.Popup;
++
+ import java.io.IOException;
+-import java.net.URL;
+-import java.util.ResourceBundle;
+ 
+-public class AddCourseController implements Initializable {
++public class AddCourseController{
+     public TextField instructorField;
+     public AnchorPane rootPane;
+     public TextField subjectField;
+     public TextField bookNameField;
+     public TextField classroomField;
++    Popup suggestionsPopup = new Popup();
++    String enteredText = instructorField.getText().toLowerCase();
++    ObservableList<String> filteredSuggestions = FXCollections.observableArrayList();
++    ListView<String> suggestionsListView = new ListView<>();
+ 
+ 
+     public void Back() throws IOException {
+@@ -67,28 +72,32 @@
+         instructorField.clear();
+     }
+ 
+-    @Override
+-    public void initialize(URL url, ResourceBundle resourceBundle) {
+-        instructorField.focusedProperty().addListener(((observableValue, aBoolean, t1) ->
+-        {
+-            if (t1) suggestions.show(instructorField.getScene().getWindow());
+-            else suggestions.hide();
+-        }));
+-
+-    }
+-
+     public void contextMenu(KeyEvent keyEvent) {
+-        ContextMenu suggestions = new ContextMenu();
+-        for (TeachingAssistant ta: Main.TAs){
+-            if (ta.getName().toLowerCase().contains(instructorField.getText().trim().toLowerCase())){
+-                MenuItem menuItem = new MenuItem(ta.getName());
+-                menuItem.setOnAction(e -> {
+-                    instructorField.setText(ta.getName());
+-                    suggestions.hide();
+-                });
+-                suggestions.getItems().add(menuItem);
++
++        if (enteredText.isEmpty()) {
++            suggestionsPopup.hide();
++        } else {
++            filteredSuggestions.clear();
++            for (TeachingAssistant ta : Main.TAs) {
++                if (ta.getName().toLowerCase().contains(enteredText.trim().toLowerCase())) {
++                    filteredSuggestions.add(ta.getName());
++                }
+             }
++            if (!filteredSuggestions.isEmpty()) {
++                suggestionsListView.setItems(filteredSuggestions);
++                suggestionsListView.getSelectionModel().clearSelection();
++
++                double listViewHeight = filteredSuggestions.size() * 24 + 2; // Adjust the item height as needed
++                suggestionsListView.setPrefHeight(listViewHeight);
++
++                suggestionsPopup.getContent().clear();
++                suggestionsPopup.getContent().add(suggestionsListView);
++
++                Bounds bounds = instructorField.localToScreen(instructorField.getBoundsInLocal());
++                suggestionsPopup.show(instructorField, bounds.getMinX(), bounds.getMaxY());
++            } else {
++                suggestionsPopup.hide();
++            }
+         }
+-        instructorField.setContextMenu(suggestions);
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"61242d65-1f5a-4ee4-a8f9-c1540d3bf3ed\" name=\"Changes\" comment=\"Main\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddTeachingAssistantController.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Q3QXAUUUAHTtYNPtlujLcFuafQ\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"last_opened_file_path\": \"F:/Hazem/University\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"project.structure.last.edited\": \"Libraries\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\",\r\n    \"settings.editor.selected.configurable\": \"preferences.pluginManager\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"F:\\Hazem\\University\\src\\main\\java\\com\\lab\\university\\utils\" />\r\n      <recent name=\"F:\\Hazem\\University\\src\\main\\resources\\com\\lab\\university\\views\" />\r\n      <recent name=\"F:\\Hazem\\University\\src\\main\\java\\com\\lab\\university\\controllers\" />\r\n      <recent name=\"F:\\Hazem\\University\\src\\main\\java\\com\\lab\\university\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"com.lab.university.controllers\" />\r\n      <recent name=\"com.lab.university.utils\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.lab.university.Main\" />\r\n      <module name=\"University\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.lab.university.models.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"61242d65-1f5a-4ee4-a8f9-c1540d3bf3ed\" name=\"Changes\" comment=\"\" />\r\n      <created>1684579831217</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1684579831217</updated>\r\n      <workItem from=\"1685037715581\" duration=\"1141000\" />\r\n      <workItem from=\"1685086433594\" duration=\"1538000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Main\">\r\n      <created>1684583248182</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1684583248182</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Main\">\r\n      <created>1684583387455</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1684583387455</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Main\">\r\n      <created>1685087678652</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1685087678652</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Main\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Main\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-method\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddCourseController.java</url>\r\n          <line>70</line>\r\n          <properties class=\"com.lab.university.controllers.AddCourseController\" method=\"initialize\">\r\n            <option name=\"EMULATED\" value=\"true\" />\r\n            <option name=\"WATCH_EXIT\" value=\"false\" />\r\n          </properties>\r\n          <option name=\"timeStamp\" value=\"6\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 93776344b331496824c113956049d1794e965e57)
++++ b/.idea/workspace.xml	(date 1685097756060)
+@@ -4,7 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="61242d65-1f5a-4ee4-a8f9-c1540d3bf3ed" name="Changes" comment="Main" />
++    <list default="true" id="61242d65-1f5a-4ee4-a8f9-c1540d3bf3ed" name="Changes" comment="Main">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddCourseController.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -42,27 +45,27 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ASKED_ADD_EXTERNAL_FILES": "true",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "git-widget-placeholder": "master",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "last_opened_file_path": "F:/Hazem/University",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "project.structure.last.edited": "Libraries",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.0",
+-    "settings.editor.selected.configurable": "preferences.pluginManager",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;F:/Hazem/University&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="F:\Hazem\University\src\main\java\com\lab\university\utils" />
+@@ -104,7 +107,8 @@
+       <option name="presentableId" value="Default" />
+       <updated>1684579831217</updated>
+       <workItem from="1685037715581" duration="1141000" />
+-      <workItem from="1685086433594" duration="1538000" />
++      <workItem from="1685086433594" duration="3482000" />
++      <workItem from="1685091537660" duration="1596000" />
+     </task>
+     <task id="LOCAL-00001" summary="Main">
+       <created>1684583248182</created>
+@@ -127,7 +131,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1685087678652</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="Main">
++      <created>1685088071295</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1685088071295</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -149,19 +160,4 @@
+     <MESSAGE value="Main" />
+     <option name="LAST_COMMIT_MESSAGE" value="Main" />
+   </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" type="java-method">
+-          <url>file://$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddCourseController.java</url>
+-          <line>70</line>
+-          <properties class="com.lab.university.controllers.AddCourseController" method="initialize">
+-            <option name="EMULATED" value="true" />
+-            <option name="WATCH_EXIT" value="false" />
+-          </properties>
+-          <option name="timeStamp" value="6" />
+-        </line-breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
+-  </component>
+ </project>
+\ No newline at end of file
