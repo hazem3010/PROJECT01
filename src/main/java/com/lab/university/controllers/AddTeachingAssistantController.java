@@ -14,7 +14,6 @@ import java.util.ResourceBundle;
 public class AddTeachingAssistantController implements Initializable {
     public RadioButton female;
     public TextField nameField;
-    public TextField phoneNumberField;
     public TextField addressField;
     public TextField userNameField;
     public TextField passwordField;
@@ -29,13 +28,12 @@ public class AddTeachingAssistantController implements Initializable {
     public void onAddTeacherAssistant() {
         String name = nameField.getText().trim();
         byte gender = (byte) ((male.isSelected())? 1: 2);
-        String phone = phoneNumberField.getText().trim();
         String address = addressField.getText().trim();
         String username = userNameField.getText().trim();
         String password = passwordField.getText();
         String courseName = courseField.getText().trim();
         TeachingAssistant ta = null;
-        if (name.equals("") || phone.equals("") || address.equals("") || username.equals("") || password.equals("")) {
+        if (name.equals("") || address.equals("") || username.equals("") || password.equals("")) {
             MyAlert.errorAlert(
                     "No enough information",
                     "Error",
@@ -43,7 +41,7 @@ public class AddTeachingAssistantController implements Initializable {
             return;
         }
         if (courseName.equals("")) {
-            ta = new TeachingAssistant(username, password, name, gender, phone, address);
+            ta = new TeachingAssistant(username, password, name, gender, "phone", address);
             clear();
         }else{
             Course selected = null;
@@ -59,7 +57,7 @@ public class AddTeachingAssistantController implements Initializable {
                         "Error",
                         String.format("There is no course named %s", courseName));
             else {
-                ta = new TeachingAssistant(username, password, name, gender, phone, address, selected);
+                ta = new TeachingAssistant(username, password, name, gender, "phone", address, selected);
                 clear();
             }
         }
@@ -72,13 +70,11 @@ public class AddTeachingAssistantController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Format.onlyDigits(phoneNumberField);
         AutoComplete.setAutoComplete(courseField, Main.courses);
     }
 
     private void clear(){
         nameField.clear();
-        phoneNumberField.clear();
         addressField.clear();
         userNameField.clear();
         passwordField.clear();
