@@ -23,6 +23,12 @@ public class Student extends Person implements Serializable {
         this.courses = courses;
     }
 
+    public Student(String name, byte gender, ArrayList<String> phoneNumbers, String address, String ID, ArrayList<Course> courses) {
+        super(name, gender, phoneNumbers, address);
+        this.ID = ID;
+        this.courses = courses;
+    }
+
     public Student(String ID, ArrayList<Course> courses) {
         super();
         this.ID = ID;

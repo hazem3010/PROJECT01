@@ -5,33 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61242d65-1f5a-4ee4-a8f9-c1540d3bf3ed" name="Changes" comment="Main">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/RemoveTeachingAssistantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddStudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/CoursesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/AddStudent.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/Attendance.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/Courses.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/RemoveStudent.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/UpdateStudent.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddTeachingAssistantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddTeachingAssistantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/FirstUseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/FirstUseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/PhoneNumbersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/PhoneNumbersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/RemoveCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/RemoveCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/RemoveTeacherController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/ShowCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/ShowCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/ShowTeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/ShowTeachingAssistantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateTeacherAssistantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/UpdateTeachingAssistantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/models/AutoComplete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/AutoComplete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/TeachingAssistantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/controllers/TeachingAssistantController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Navigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Navigation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/models/TeachingAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/TeachingAssistant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/courses.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/courses.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/manager.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/manager.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/teachingAssistants.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/data/teachingAssistants.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/AddTeachingAssistant.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/AddTeachingAssistant.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/FirstUse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/FirstUse.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/RemoveTeacher.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/RemoveTeachingAssistant.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/ShowTeacher.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/ShowTeacher.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/UpdateTeacherAssistant.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab/university/views/UpdateTeachingAssistant.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab/university/models/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +33,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/com/lab/university/controllers/AddTeachingAssistantController.java" root0="FORCE_HIGHLIGHTING" />
@@ -62,7 +47,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2Q3QXAUUUAHTtYNPtlujLcFuafQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -83,7 +68,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "java.suggest.annotation.dependency": "false",
-    "last_opened_file_path": "C:/Users/Eng.Nabil/AppData/Local/SceneBuilder/SceneBuilder.exe",
+    "last_opened_file_path": "F:/Hazem/University/src/main/resources/com/lab/university/views",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,8 +82,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Hazem\University\src\main\java\com\lab\university\utils" />
       <recent name="F:\Hazem\University\src\main\resources\com\lab\university\views" />
+      <recent name="F:\Hazem\University\src\main\java\com\lab\university\utils" />
       <recent name="F:\Hazem\University\src\main\java\com\lab\university\controllers" />
       <recent name="F:\Hazem\University\src\main\java\com\lab\university" />
     </key>
@@ -152,7 +137,7 @@
       <workItem from="1685037715581" duration="1141000" />
       <workItem from="1685086433594" duration="1538000" />
       <workItem from="1685139009346" duration="280000" />
-      <workItem from="1685178511070" duration="24762000" />
+      <workItem from="1685178511070" duration="38103000" />
     </task>
     <task id="LOCAL-00001" summary="Main">
       <created>1684583248182</created>
@@ -259,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685184451978</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Main">
+      <created>1685209962309</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1685209962309</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

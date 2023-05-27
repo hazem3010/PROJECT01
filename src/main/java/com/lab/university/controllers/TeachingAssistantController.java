@@ -1,13 +1,17 @@
 package com.lab.university.controllers;
 
+import com.lab.university.models.Navigation;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 public class TeachingAssistantController {
 
     public AnchorPane rootPane;
 
-    public void onAddStudent(ActionEvent actionEvent) {
+    public void onAddStudent(ActionEvent actionEvent) throws IOException {
+        Navigation.navigateTo(Navigation.ADD_STUDENT_FXML);
     }
 
     public void onUpdateStudent(ActionEvent actionEvent) {
