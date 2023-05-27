@@ -4,15 +4,14 @@ import com.lab.university.Main;
 import com.lab.university.models.AutoComplete;
 import com.lab.university.models.Course;
 import com.lab.university.models.MyAlert;
-import com.lab.university.models.Navigation;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
- public class RemoveCourseController implements Initializable {
+import com.lab.university.models.Navigation;
+import javafx.event.ActionEvent;
+public class RemoveCourseController implements Initializable {
 
     public AnchorPane rootPane;
     public javafx.scene.control.TextField textField;
