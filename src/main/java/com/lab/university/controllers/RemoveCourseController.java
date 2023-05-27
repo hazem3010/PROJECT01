@@ -23,9 +23,11 @@ import java.util.ResourceBundle;
 
     public void onRemove(ActionEvent actionEvent) {
         for (Course course: Main.courses) {
-            if (course.getSubject().equalsIgnoreCase(textField.getText())) Main.courses.remove(course);
-            MyAlert.informationAlert("Course deleted!", "Success", String.format("Course %s deleted successfully", course.getSubject()));
-            return;
+            if (course.getSubject().equalsIgnoreCase(textField.getText())) {
+                Main.courses.remove(course);
+                MyAlert.informationAlert("Course deleted!", "Success", String.format("Course %s deleted successfully", course.getSubject()));
+                return;
+            }
         }
         MyAlert.errorAlert("Course not found", "Error", String.format("There is no course named %S", textField.getText()));
     }
