@@ -11,19 +11,32 @@ import javafx.stage.Popup;
 import java.util.ArrayList;
 
 public class AutoComplete {
-    public static <T extends AutoCompletable> void setAutoComplete(TextField textField, ArrayList<T> arrayList){
+
+    public static <T> void setAutoComplete(TextField textField, ArrayList<T> arrayList){
         Popup popup = new Popup();
         ListView<String> listView = new ListView<>();
         ObservableList<String> observableList = FXCollections.observableArrayList();
-
         textField.setOnKeyTyped(keyEvent -> {
             String enteredText = textField.getText().trim().toLowerCase();
             if (enteredText.isEmpty()) popup.hide();
             else {
                 observableList.clear();
-                for (T t : arrayList)
-                    if (t.toAutoComplete().toLowerCase().contains(enteredText))
-                        observableList.add(t.toAutoComplete());
+                try{
+                    if (arrayList.get(0) instanceof AutoCompletable){
+                        for (T t : arrayList)
+                            if (((AutoCompletable) t).toAutoComplete().toLowerCase().contains(enteredText))
+                                observableList.add(((AutoCompletable) t).toAutoComplete());
+
+                    }else if (arrayList.get(0) instanceof String){
+                        for (T t : arrayList)
+                            if (((String) t).toLowerCase().contains(enteredText))
+                                observableList.add((String) t);
+                    }else throw new IllegalArgumentException(
+                            "Array list content must be of type String or implements AutoCompletable");
+                } catch (IndexOutOfBoundsException e){
+                    return;
+                }
+
                 if (observableList.size() <= 1 &&
                         (observableList.size() == 1 && observableList.get(0).equals(textField.getText()))) {
                     popup.hide();

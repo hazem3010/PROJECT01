@@ -28,7 +28,7 @@ public class RemoveCourseController implements Initializable {
                 return;
             }
         }
-        MyAlert.errorAlert("Course not found", "Error", String.format("There is no course named %S", textField.getText()));
+        MyAlert.errorAlert("Course not found", "Error", String.format("There is no courseField named %S", textField.getText()));
     }
 
     @Override

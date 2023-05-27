@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AddTeachingAssistantController implements Initializable {
@@ -19,6 +20,14 @@ public class AddTeachingAssistantController implements Initializable {
     public TextField passwordField;
     public TextField courseField;
     public RadioButton male;
+    private static ArrayList<String> phoneNumbers = new ArrayList<>();
+    private static String name;
+    private static byte gender;
+    private static String address;
+    private static String username;
+    private static String password;
+    private static String courseName;
+
 
 
     public void onBack() throws IOException {
@@ -26,12 +35,7 @@ public class AddTeachingAssistantController implements Initializable {
     }
 
     public void onAddTeacherAssistant() {
-        String name = nameField.getText().trim();
-        byte gender = (byte) ((male.isSelected())? 1: 2);
-        String address = addressField.getText().trim();
-        String username = userNameField.getText().trim();
-        String password = passwordField.getText();
-        String courseName = courseField.getText().trim();
+        getFields();
         TeachingAssistant ta = null;
         if (name.equals("") || address.equals("") || username.equals("") || password.equals("")) {
             MyAlert.errorAlert(
@@ -41,7 +45,7 @@ public class AddTeachingAssistantController implements Initializable {
             return;
         }
         if (courseName.equals("")) {
-            ta = new TeachingAssistant(username, password, name, gender, "phone", address);
+            ta = new TeachingAssistant(username, password, name, gender, phoneNumbers, address);
             clear();
         }else{
             Course selected = null;
@@ -55,13 +59,41 @@ public class AddTeachingAssistantController implements Initializable {
                 MyAlert.errorAlert(
                         "Course not found",
                         "Error",
-                        String.format("There is no course named %s", courseName));
+                        String.format("There is no courseField named %s", courseName));
             else {
-                ta = new TeachingAssistant(username, password, name, gender, "phone", address, selected);
+                ta = new TeachingAssistant(username, password, name, gender, phoneNumbers, address, selected);
                 clear();
             }
         }
         Main.TAs.add(ta);
+        phoneNumbers = new ArrayList<>();
+
+    }
+
+    private void getFields() {
+        name = (nameField.getText() != null)? nameField.getText().trim(): "";
+        gender = (byte) ((male.isSelected()) ? 1 : 2);
+        address = (addressField.getText() != null)? addressField.getText().trim(): "";
+        username = (userNameField.getText() != null)? userNameField.getText().trim(): "";
+        password = (passwordField.getText() != null)? passwordField.getText(): "";
+        courseName = (courseField.getText() != null)? courseField.getText().trim(): "";
+    }
+    private void setFields() {
+        nameField.setText(name);
+        switch (gender) {
+            case 1 -> {
+                male.setSelected(true);
+                female.setSelected(false);
+            }
+            case 2 -> {
+                male.setSelected(false);
+                female.setSelected(true);
+            }
+        }
+        addressField.setText(address);
+        userNameField.setText(username);
+        passwordField.setText(password);
+        courseField.setText(courseName);
     }
 
     public void onRadioButtonToggle(ActionEvent actionEvent) {
@@ -70,6 +102,7 @@ public class AddTeachingAssistantController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setFields();
         AutoComplete.setAutoComplete(courseField, Main.courses);
     }
 
@@ -79,5 +112,19 @@ public class AddTeachingAssistantController implements Initializable {
         userNameField.clear();
         passwordField.clear();
         courseField.clear();
+        name = null;
+        gender = 1;
+        address = null;
+        username = null;
+        password = null;
+        courseName = null;
+
+    }
+
+    public void toPhoneNumbers(ActionEvent actionEvent) throws IOException {
+        getFields();
+        PhoneNumbersController.phoneNumbers = phoneNumbers;
+        PhoneNumbersController.backPath = Navigation.ADD_TEACHING_ASSISTANT;
+        Navigation.navigateTo(Navigation.PHONE_NUMBERS_FXML);
     }
 }

@@ -79,6 +79,6 @@
          <RadioButton fx:id="male" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#onRadioButtonToggle" selected="true" text="Male" />
          <RadioButton fx:id="female" layoutX="100.0" layoutY="7.0" mnemonicParsing="false" onAction="#onRadioButtonToggle" text="Female" />
       </AnchorPane>
-      <Button mnemonicParsing="false" text="..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" text="..." GridPane.columnIndex="1" GridPane.rowIndex="2" onAction="#toPhoneNumbers"/>
    </GridPane>
 </AnchorPane>

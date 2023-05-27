@@ -23,6 +23,6 @@ public class LoginController {
                 return;
             }
         }
-        MyAlert.errorAlert("Error", "Credentials Error", "Wrong username or passwordField");
+        MyAlert.errorAlert("Error", "Credentials Error", "Wrong username or password");
     }
 }

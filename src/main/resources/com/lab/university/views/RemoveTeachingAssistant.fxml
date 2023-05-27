@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="rootPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lab.university.controllers.RemoveTeachingAssistantController">
+
+    <GridPane layoutX="195.0" layoutY="142.0" prefHeight="118.0" prefWidth="428.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <Label text="Teaching assistant name :">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textField" prefHeight="34.0" prefWidth="160.0" promptText="Enter the name" GridPane.columnIndex="1" />
+        <Button mnemonicParsing="false" onAction="#onBack" prefHeight="40.0" prefWidth="69.0" text="Back" GridPane.rowIndex="1" />
+        <Button mnemonicParsing="false" onAction="#onRemove" prefHeight="39.0" prefWidth="74.0" text="Remove" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    </GridPane>
+    <Label layoutX="195.0" layoutY="47.0" text="Remove Teaching assistant">
+        <font>
+          <Font size="36.0" />
+        </font>
+    </Label>
+</AnchorPane>

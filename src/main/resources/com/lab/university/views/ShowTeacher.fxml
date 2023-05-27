@@ -7,11 +7,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="root" dividerPositions="0.09375" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lab.university.controllers.ShowTeacherController">
+<SplitPane fx:id="root" dividerPositions="0.09375" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lab.university.controllers.ShowTeachingAssistantController">
     <TableView fx:id="table" prefHeight="234.0" prefWidth="341.0">
         <columns>
-            <TableColumn fx:id="NameTeacher" prefWidth="145.60003280639648" text="Teacher Name" />
-            <TableColumn fx:id="NameCourse" minWidth="4.00006103515625" prefWidth="165.59999084472656" text="Course Name" />
+            <TableColumn fx:id="TAName" prefWidth="145.60003280639648" text="Teacher Name" />
+            <TableColumn fx:id="courseName" minWidth="4.00006103515625" prefWidth="165.59999084472656" text="Course Name" />
         </columns>
     </TableView>
     <Button mnemonicParsing="false" onAction="#onBack" prefHeight="25.0" prefWidth="84.0" text="Back">

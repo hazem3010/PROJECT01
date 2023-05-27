@@ -7,7 +7,7 @@ public class Person implements Serializable {
 
     private String name;
     private byte gender;
-    private ArrayList<String> phone = new ArrayList<>();
+    private ArrayList<String> phoneNumbers = new ArrayList<>();
     private String address;
 
     public String getName() {
@@ -26,12 +26,12 @@ public class Person implements Serializable {
         this.gender = gender;
     }
 
-    public ArrayList<String> getPhone() {
-        return phone;
+    public ArrayList<String> getPhoneNumbers() {
+        return phoneNumbers;
     }
 
-    public void setPhone(ArrayList<String> phone) {
-        this.phone = phone;
+    public void setPhoneNumbers(ArrayList<String> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
     }
 
     public String getAddress() {
@@ -42,10 +42,10 @@ public class Person implements Serializable {
         this.address = address;
     }
 
-    public Person(String name, byte gender, String phone, String address) {
+    public Person(String name, byte gender, ArrayList<String> phoneNumbers, String address) {
         this.name = name;
         this.gender = gender;
-        this.phone.add(phone);
+        this.phoneNumbers = phoneNumbers;
         this.address = address;
     }
     public Person(){

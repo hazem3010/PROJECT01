@@ -30,7 +30,7 @@ public class UpdateCourseController implements Initializable {
    }
    public void update(){
        if (selectedCourse == null){
-           MyAlert.errorAlert("No course selected", "Error", "Search for a course and select it to update");
+           MyAlert.errorAlert("No courseField selected", "Error", "Search for a courseField and select it to update");
        }
        TeachingAssistant ta = null;
        for (TeachingAssistant ta_ : Main.TAs){
