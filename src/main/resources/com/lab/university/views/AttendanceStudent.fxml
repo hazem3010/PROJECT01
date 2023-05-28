@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.lab.university.controllers.AttendanceStudentController">
+   <Label fx:id="lectureNameLabel" alignment="CENTER" layoutX="59.0" layoutY="6.0" prefHeight="40.0" prefWidth="471.0"
+          text="Attendance Student">
+      <font>
+         <Font name="Times New Roman Bold" size="36.0"/>
+      </font>
+   </Label>
+   <TableView fx:id="studentAttendance" layoutX="149.0" layoutY="48.0" prefHeight="304.0" prefWidth="292.0">
+      <columns>
+         <TableColumn fx:id="id" prefWidth="75.0" text="id"/>
+         <TableColumn fx:id="name" prefWidth="75.0" text="name"/>
+         <TableColumn fx:id="phoneNumber" prefWidth="140.0" text="phone number"/>
+      </columns>
+      <effect>
+         <DropShadow>
+            <color>
+               <Color red="0.5058823823928833" green="0.49803921580314636" blue="0.49803921580314636"/>
+            </color>
+         </DropShadow>
+      </effect>
+      <cursor>
+         <Cursor fx:constant="TEXT"/>
+      </cursor>
+   </TableView>
+   <ComboBox fx:id="search" editable="true" layoutX="95.0" layoutY="352.0" onKeyPressed="#onKeyReleased"
+             prefHeight="32.0" prefWidth="250.0" promptText="Enter the name or id or phone number">
+      <cursor>
+         <Cursor fx:constant="TEXT"/>
+      </cursor>
+      <effect>
+         <DropShadow>
+            <color>
+               <Color red="0.5058823823928833" green="0.49803921580314636" blue="0.49803921580314636"/>
+            </color>
+         </DropShadow>
+      </effect>
+   </ComboBox>
+   <Button layoutX="14.0" layoutY="346.0" mnemonicParsing="false" onAction="#onBack" text="Back">
+      <font>
+         <Font name="Times New Roman Bold" size="17.0"/>
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND"/>
+      </cursor>
+      <effect>
+         <DropShadow>
+            <color>
+               <Color red="0.5058823823928833" green="0.49803921580314636" blue="0.49803921580314636"/>
+            </color>
+         </DropShadow>
+      </effect>
+   </Button>
+   <Button layoutX="345.0" layoutY="352.0" mnemonicParsing="false" onAction="#onStudentAttendance" prefHeight="32.0"
+           prefWidth="184.0" text="Student Attendance">
+      <font>
+         <Font name="Times New Roman Bold" size="17.0"/>
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND"/>
+      </cursor>
+      <effect>
+         <DropShadow>
+            <color>
+               <Color red="0.5058823823928833" green="0.49803921580314636" blue="0.49803921580314636"/>
+            </color>
+         </DropShadow>
+      </effect>
+   </Button>
+</AnchorPane>

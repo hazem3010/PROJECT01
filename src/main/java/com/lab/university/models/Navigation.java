@@ -29,6 +29,7 @@ public class Navigation {
     public static final String ADD_LECTURE_FXML = "views/AddLecture.fxml";
     public static final String UPDATE_LECTURE_FXML = "views/UpdateLecture.fxml";
     public static final String REMOVE_LECTURE_FXML = "views/RemoveLecture.fxml";
+    public static final String ATTENDANCE_FXML = "views/AttendanceStudent";
     private static Stage stage;
 
     public static void setStage(Stage stage){

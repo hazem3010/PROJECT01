@@ -36,7 +36,8 @@ public class TeachingAssistantController {
         Navigation.navigateTo(Navigation.REMOVE_LECTURE_FXML);
     }
 
-    public void onAttendance(ActionEvent actionEvent) {
+    public void onAttendance(ActionEvent actionEvent) throws IOException {
+        Navigation.navigateTo(Navigation.ATTENDANCE_FXML);
     }
 
     public void onReports(ActionEvent actionEvent) {
