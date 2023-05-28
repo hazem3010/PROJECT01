@@ -19,6 +19,7 @@ public class LoginController {
         }
         for(TeachingAssistant ta: Main.TAs){
             if (ta.getUserName().equals(username) && ta.getPassword().equals(passwordField.getText())){
+                TeachingAssistantController.signedInTA = ta;
                 Navigation.navigateTo(Navigation.TEACHING_ASSISTANT_FXML);
                 return;
             }

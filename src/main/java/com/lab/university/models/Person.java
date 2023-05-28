@@ -51,4 +51,11 @@ public class Person implements Serializable {
     public Person(){
 
     }
+
+    public String getPhoneNumber() {
+        if (phoneNumbers.isEmpty()) {
+            return "";
+        }
+        return phoneNumbers.get(0);
+    }
 }

@@ -17,7 +17,7 @@ public class AutoComplete {
         ListView<String> listView = new ListView<>();
         ObservableList<String> observableList = FXCollections.observableArrayList();
         textField.setOnKeyTyped(keyEvent -> {
-            String enteredText = textField.getText().trim().toLowerCase();
+            String enteredText = (textField.getText() != null)? textField.getText().trim().toLowerCase(): "";
             if (enteredText.isEmpty()) popup.hide();
             else {
                 observableList.clear();
@@ -65,4 +65,5 @@ public class AutoComplete {
             }
         });
     }
+
 }

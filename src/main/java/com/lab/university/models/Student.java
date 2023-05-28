@@ -3,17 +3,9 @@ package com.lab.university.models;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Student extends Person implements Serializable {
+public class Student extends Person implements Serializable, AutoCompletable {
     private String ID;
     private ArrayList<Course> courses;
-
-    public String getID() {
-        return ID;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
-    }
 
     public ArrayList<Course> getCourses() {
         return courses;
@@ -23,15 +15,21 @@ public class Student extends Person implements Serializable {
         this.courses = courses;
     }
 
-    public Student(String name, byte gender, ArrayList<String> phoneNumbers, String address, String ID, ArrayList<Course> courses) {
-        super(name, gender, phoneNumbers, address);
-        this.ID = ID;
-        this.courses = courses;
+    public String getID() {
+        return ID;
     }
 
-    public Student(String ID, ArrayList<Course> courses) {
-        super();
+    public void setID(String ID) {
         this.ID = ID;
-        this.courses = courses;
+    }
+
+    public Student(String name, byte gender, ArrayList<String> phoneNumbers, String address, String ID) {
+        super(name, gender, phoneNumbers, address);
+        this.ID = ID;
+    }
+
+    @Override
+    public String toAutoComplete() {
+        return getName();
     }
 }

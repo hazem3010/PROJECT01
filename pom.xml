@@ -15,17 +15,6 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.openjfx</groupId>
-      <artifactId>javafx-controls</artifactId>
-      <version>19.0.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.openjfx</groupId>
-      <artifactId>javafx-fxml</artifactId>
-      <version>19.0.2</version>
-    </dependency>
-                                    
-    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>${junit.version}</version>
@@ -51,12 +40,6 @@
           <groupId>org.openjfx</groupId>
           <artifactId>javafx-controls</artifactId>
           <version>20</version>
-      </dependency>
-      <dependency>
-          <groupId>org.jetbrains</groupId>
-          <artifactId>annotations</artifactId>
-          <version>13.0</version>
-          <scope>compile</scope>
       </dependency>
       <dependency>
           <groupId>org.jetbrains</groupId>

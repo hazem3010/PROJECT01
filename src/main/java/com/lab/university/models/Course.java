@@ -2,21 +2,17 @@ package com.lab.university.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Course implements Serializable, AutoCompletable {
     private String subject ;
     private String book ;
     private String location;
-    private Student[] students;
-    private TeachingAssistant TA;
-    private ArrayList<Lecture> lectures;
+    private Map<Student, Integer> students = new LinkedHashMap<>();
+    private ArrayList<Lecture> lectures = new ArrayList<>();
 
-    public Course(String subject, String book, String location, TeachingAssistant TA) {
-        this.subject = subject;
-        this.book = book;
-        this.location = location;
-        this.TA = TA;
-    }
 
     public Course(String subject, String book, String location) {
         this.subject = subject;
@@ -51,20 +47,12 @@ public class Course implements Serializable, AutoCompletable {
         this.location = location;
     }
 
-    public Student[] getStudents() {
+    public Map<Student, Integer> getStudents() {
         return students;
     }
 
-    public void setStudents(Student[] students) {
+    public void setStudents(HashMap<Student, Integer> students) {
         this.students = students;
-    }
-
-    public TeachingAssistant getTA() {
-        return TA;
-    }
-
-    public void setTA(TeachingAssistant TA) {
-        this.TA = TA;
     }
 
     public ArrayList<Lecture> getLectures() {

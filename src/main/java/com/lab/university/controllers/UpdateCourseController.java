@@ -22,7 +22,6 @@ public class UpdateCourseController implements Initializable {
    @FXML
     private TextField placeField;
    @FXML
-    private TextField instructorField;
     private Course selectedCourse;
 
    public void Back() throws IOException {
@@ -32,21 +31,9 @@ public class UpdateCourseController implements Initializable {
        if (selectedCourse == null){
            MyAlert.errorAlert("No courseField selected", "Error", "Search for a courseField and select it to update");
        }
-       TeachingAssistant ta = null;
-       for (TeachingAssistant ta_ : Main.TAs){
-           if (ta_.getName().equalsIgnoreCase(instructorField.getText().trim())){
-               ta = ta_;
-               selectedCourse.setTA(ta_);
-               break;
-           }
-       }
-       if (ta!=null) {
-           selectedCourse.setSubject(subjectField.getText());
-           selectedCourse.setBook(bookNameField.getText());
-           selectedCourse.setLocation(placeField.getText());
-       }else {
-           MyAlert.errorAlert("TA not found", "Error", String.format("There is no TA named %s", instructorField.getText()));
-       }
+       selectedCourse.setSubject(subjectField.getText());
+       selectedCourse.setBook(bookNameField.getText());
+       selectedCourse.setLocation(placeField.getText());
    }
 
     public void search(ActionEvent actionEvent) {
@@ -56,7 +43,6 @@ public class UpdateCourseController implements Initializable {
                 subjectField.setText(selectedCourse.getSubject());
                 bookNameField.setText(selectedCourse.getBook());
                 placeField.setText(selectedCourse.getLocation());
-                instructorField.setText((selectedCourse.getTA() != null)? selectedCourse.getTA().getName(): "");
             }
         }
     }
@@ -64,6 +50,5 @@ public class UpdateCourseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         AutoComplete.setAutoComplete(searchBar, Main.courses);
-        AutoComplete.setAutoComplete(instructorField, Main.TAs);
     }
 }

@@ -2,20 +2,19 @@ package com.lab.university.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
-public class Lecture implements Serializable {
-    private Course course;
+public class Lecture implements Serializable, AutoCompletable {
+    private String name;
     private String location;
-    private ArrayList<Student> attendance;
-    private Date date;
+    private ArrayList<Student> attendingStudents;
 
-    public Course getCourse() {
-        return course;
+
+    public String getName() {
+        return name;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLocation() {
@@ -26,26 +25,13 @@ public class Lecture implements Serializable {
         this.location = location;
     }
 
-    public ArrayList<Student> getAttendance() {
-        return attendance;
-    }
-
-    public void setAttendance(ArrayList<Student> attendance) {
-        this.attendance = attendance;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Lecture(Course course, String location, ArrayList<Student> attendance, Date date) {
-        this.course = course;
+    public Lecture(String location, String name) {
         this.location = location;
-        this.attendance = attendance;
-        this.date = date;
+        this.name = name;
+    }
+
+    @Override
+    public String toAutoComplete() {
+        return name;
     }
 }

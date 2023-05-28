@@ -6,7 +6,6 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Data {
-//    Comment
     final static String DATA_DIRECTORY = "src/main/resources/com/lab/university/data/";
     public static <T> ArrayList<T> load(String fileName) throws ClassNotFoundException {
         try {

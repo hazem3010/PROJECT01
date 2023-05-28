@@ -40,6 +40,7 @@ public class CoursesController implements Initializable {
     }
 
     private void showViewList() {
+        coursesListView.getItems().clear();
         ObservableList<Course> data = FXCollections.observableArrayList(courses);
         AutoComplete.setAutoComplete(courseField, Main.courses);
         for (Course course: data){

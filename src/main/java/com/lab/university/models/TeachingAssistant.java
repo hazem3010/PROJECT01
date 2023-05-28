@@ -15,10 +15,12 @@ public class TeachingAssistant extends User implements Serializable, AutoComplet
     }
 
     public TeachingAssistant() {
+        course = new Course();
     }
 
     public TeachingAssistant(String userName, String password, String name, byte gender, ArrayList<String> phone, String address) {
         super(userName, password, name, gender, phone, address);
+        course = new Course();
     }
 
     public TeachingAssistant(String userName, String password, String name, byte gender, ArrayList<String> phone, String address, Course course) {
