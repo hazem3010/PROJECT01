@@ -13,6 +13,7 @@ public class Main extends Application {
     public static Manager manager;
     public static ArrayList<Course> courses;
     public static ArrayList<TeachingAssistant> TAs;
+    public static ArrayList<Student> students;
 
 
     @Override
@@ -21,8 +22,9 @@ public class Main extends Application {
         Scene home;
         stage.setTitle("University");
         manager = Data.loadManager();
-        Main.courses = Data.load("courses.bin");
-        Main.TAs = Data.load("teachingAssistants.bin");
+        courses = Data.load("courses.bin");
+        TAs = Data.load("teachingAssistants.bin");
+        students = Data.load("students.bin");
         String fxmlUrl = (manager != null)?"views/Login.fxml":"views/FirstUse.fxml";
         home = new Scene(new FXMLLoader(Main.class.getResource(fxmlUrl)).load());
         stage.setScene(home);

@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-
+import com.lab.university.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -30,6 +30,7 @@ public class AddStudentController implements Initializable {
             MyAlert.errorAlert("No enough data", "Error", "Fill all fields to continue");
         else {
             Student student = new Student(name, gender, phoneNumbers, address, id, courses);
+            Main.students.add(student);
             clear();
         }
     }

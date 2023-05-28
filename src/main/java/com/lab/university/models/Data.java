@@ -28,6 +28,7 @@ public class Data {
         new ObjectOutputStream(new FileOutputStream(DATA_DIRECTORY+"manager.bin")).writeObject(Main.manager);
         new ObjectOutputStream(new FileOutputStream(DATA_DIRECTORY+"courses.bin")).writeObject(Main.courses);
         new ObjectOutputStream(new FileOutputStream(DATA_DIRECTORY+"teachingAssistants.bin")).writeObject(Main.TAs);
+        new ObjectOutputStream(new FileOutputStream(DATA_DIRECTORY+"students.bin")).writeObject(Main.students);
     }
 
 }
